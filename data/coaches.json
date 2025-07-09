@@ -1,0 +1,104 @@
+[
+  {
+    "slug": "jane-doe",
+    "name": "Jane Doe",
+    "specialties": ["Productivity", "Mindset"],
+    "profileImg": "https://picsum.photos/seed/jane-doe/200/200",
+    "bio": "I help high-achievers overcome procrastination and build bullet-proof habits.",
+    "videoEmbed": "https://www.youtube.com/embed/dQw4w9WgXcQ",
+    "reviews": [{ "rating": 5, "text": "Jane’s system doubled my output in just one month!" }],
+    "referralCode": "JANE123"
+  },
+  {
+    "slug": "john-smith",
+    "name": "John Smith",
+    "specialties": ["Career Transition", "Leadership"],
+    "profileImg": "https://picsum.photos/seed/john-smith/200/200",
+    "bio": "Ex-Fortune 500 executive turned coach—let’s map out your next big career move.",
+    "videoEmbed": "https://www.youtube.com/embed/3JZ_D3ELwOQ",
+    "reviews": [{ "rating": 4, "text": "John helped me land my dream role in 8 weeks." }],
+    "referralCode": "JOHN456"
+  },
+  {
+    "slug": "sara-lee",
+    "name": "Sara Lee",
+    "specialties": ["Wellness", "Stress Management"],
+    "profileImg": "https://picsum.photos/seed/sara-lee/200/200",
+    "bio": "Balance your body and mind—science-backed strategies to beat burnout.",
+    "videoEmbed": "https://www.youtube.com/embed/V-_O7nl0Ii0",
+    "reviews": [{ "rating": 5, "text": "Sara’s daily rituals transformed my energy levels!" }],
+    "referralCode": "SARA789"
+  },
+  {
+    "slug": "mike-johnson",
+    "name": "Mike Johnson",
+    "specialties": ["Entrepreneurship", "Productivity"],
+    "profileImg": "https://picsum.photos/seed/mike-johnson/200/200",
+    "bio": "Founder-turned-coach—scale your side hustle into a thriving business.",
+    "videoEmbed": "https://www.youtube.com/embed/tVj0ZTS4WF4",
+    "reviews": [{ "rating": 4, "text": "Mike’s roadmap got my revenue up 30% in three months." }],
+    "referralCode": "MIKE321"
+  },
+  {
+    "slug": "lisa-wong",
+    "name": "Lisa Wong",
+    "specialties": ["Mindset", "Confidence"],
+    "profileImg": "https://picsum.photos/seed/lisa-wong/200/200",
+    "bio": "Build unshakeable self-belief and own every room you walk into.",
+    "videoEmbed": "https://www.youtube.com/embed/eY52Zsg-KVI",
+    "reviews": [{ "rating": 5, "text": "After working with Lisa, I finally asked for that promotion—and got it!" }],
+    "referralCode": "LISA654"
+  },
+  {
+    "slug": "david-brown",
+    "name": "David Brown",
+    "specialties": ["Time Management", "Organization"],
+    "profileImg": "https://picsum.photos/seed/david-brown/200/200",
+    "bio": "Master your schedule, eliminate overwhelm, and reclaim your free time.",
+    "videoEmbed": "https://www.youtube.com/embed/9bZkp7q19f0",
+    "reviews": [{ "rating": 4, "text": "David’s techniques gave me an extra 10 hours a week!" }],
+    "referralCode": "DAVID987"
+  },
+  {
+    "slug": "emily-davis",
+    "name": "Emily Davis",
+    "specialties": ["Public Speaking", "Communication"],
+    "profileImg": "https://picsum.photos/seed/emily-davis/200/200",
+    "bio": "Speak with clarity and confidence—captivate any audience, every time.",
+    "videoEmbed": "https://www.youtube.com/embed/ktvTqknDobU",
+    "reviews": [{ "rating": 5, "text": "Emily turned my stage fright into stage presence." }],
+    "referralCode": "EMILY321"
+  },
+  {
+    "slug": "carlos-martinez",
+    "name": "Carlos Martinez",
+    "specialties": ["Entrepreneurship", "Leadership"],
+    "profileImg": "https://picsum.photos/seed/carlos-martinez/200/200",
+    "bio": "Serial entrepreneur sharing battlefield-tested leadership blueprints.",
+    "videoEmbed": "https://www.youtube.com/embed/OPf0YbXqDm0",
+    "reviews": [{ "rating": 5, "text": "Carlos helped me build a team that doubled our growth." }],
+    "referralCode": "CARLOS159"
+  },
+  {
+    "slug": "priya-patel",
+    "name": "Priya Patel",
+    "specialties": ["Wellness", "Nutrition"],
+    "profileImg": "https://picsum.photos/seed/priya-patel/200/200",
+    "bio": "Transform your relationship with food and feel better from the inside out.",
+    "videoEmbed": "https://www.youtube.com/embed/L_jWHffIx5E",
+    "reviews": [{ "rating": 4, "text": "Priya’s meal plan was a game-changer for my energy and mood." }],
+    "referralCode": "PRIYA753"
+  },
+  {
+    "slug": "robert-chen",
+    "name": "Robert Chen",
+    "specialties": ["Mindset", "Career Transition"],
+    "profileImg": "https://picsum.photos/seed/robert-chen/200/200",
+    "bio": "Mindset strategist helping you pivot careers with confidence and clarity.",
+    "videoEmbed": "https://www.youtube.com/embed/fJ9rUzIMcZQ",
+    "reviews": [{ "rating": 5, "text": "Robert’s mindset shift was the key to my career leap." }],
+    "referralCode": "ROBERT852"
+  }
+]
+
+

@@ -1,7 +1,11 @@
-import type { NextConfig } from "next";
+import type { NextConfig } from 'next'
 
 const nextConfig: NextConfig = {
-  /* config options here */
-};
+  images: {
+    domains: ['picsum.photos'],
+  },
+  // any other config options you have…
+}
 
-export default nextConfig;
+export default nextConfig
+
