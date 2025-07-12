@@ -3,101 +3,211 @@
     "slug": "jane-doe",
     "name": "Jane Doe",
     "specialties": ["Productivity", "Mindset"],
-    "profileImg": "https://picsum.photos/seed/jane-doe/200/200",
+    "profileImg": "https://randomuser.me/api/portraits/women/1.jpg",
     "bio": "I help high-achievers overcome procrastination and build bullet-proof habits.",
     "videoEmbed": "https://www.youtube.com/embed/dQw4w9WgXcQ",
     "reviews": [{ "rating": 5, "text": "Jane’s system doubled my output in just one month!" }],
-    "referralCode": "JANE123"
+    "referralCode": "jane-doe"
   },
   {
     "slug": "john-smith",
     "name": "John Smith",
     "specialties": ["Career Transition", "Leadership"],
-    "profileImg": "https://picsum.photos/seed/john-smith/200/200",
+    "profileImg": "https://randomuser.me/api/portraits/men/2.jpg",
     "bio": "Ex-Fortune 500 executive turned coach—let’s map out your next big career move.",
     "videoEmbed": "https://www.youtube.com/embed/3JZ_D3ELwOQ",
     "reviews": [{ "rating": 4, "text": "John helped me land my dream role in 8 weeks." }],
-    "referralCode": "JOHN456"
+    "referralCode": "john-smith"
   },
   {
-    "slug": "sara-lee",
-    "name": "Sara Lee",
+    "slug": "emma-lee",
+    "name": "Emma Lee",
+    "specialties": ["Career Coaching", "Leadership"],
+    "profileImg": "https://randomuser.me/api/portraits/women/3.jpg",
+    "bio": "Empowering professionals to find purpose and lead with confidence.",
+    "videoEmbed": "https://www.youtube.com/embed/3GwjfUFyY6M",
+    "reviews": [{ "rating": 5, "text": "Emma helped me land my dream job!" }],
+    "referralCode": "emma-lee"
+  },
+  {
+    "slug": "michael-chen",
+    "name": "Michael Chen",
+    "specialties": ["Relationships", "Communication"],
+    "profileImg": "https://randomuser.me/api/portraits/men/4.jpg",
+    "bio": "Guiding clients to build stronger, more meaningful relationships.",
+    "videoEmbed": "https://www.youtube.com/embed/2vjPBrBU-TM",
+    "reviews": [{ "rating": 4, "text": "Michael’s advice saved my marriage." }],
+    "referralCode": "michael-chen"
+  },
+  {
+    "slug": "sofia-garcia",
+    "name": "Sofia Garcia",
     "specialties": ["Wellness", "Stress Management"],
-    "profileImg": "https://picsum.photos/seed/sara-lee/200/200",
-    "bio": "Balance your body and mind—science-backed strategies to beat burnout.",
-    "videoEmbed": "https://www.youtube.com/embed/V-_O7nl0Ii0",
-    "reviews": [{ "rating": 5, "text": "Sara’s daily rituals transformed my energy levels!" }],
-    "referralCode": "SARA789"
+    "profileImg": "https://randomuser.me/api/portraits/women/5.jpg",
+    "bio": "Helping you find balance and peace in a busy world.",
+    "videoEmbed": "https://www.youtube.com/embed/5NV6Rdv1a3I",
+    "reviews": [{ "rating": 5, "text": "Sofia’s mindfulness techniques are amazing!" }],
+    "referralCode": "sofia-garcia"
   },
   {
-    "slug": "mike-johnson",
-    "name": "Mike Johnson",
-    "specialties": ["Entrepreneurship", "Productivity"],
-    "profileImg": "https://picsum.photos/seed/mike-johnson/200/200",
-    "bio": "Founder-turned-coach—scale your side hustle into a thriving business.",
-    "videoEmbed": "https://www.youtube.com/embed/tVj0ZTS4WF4",
-    "reviews": [{ "rating": 4, "text": "Mike’s roadmap got my revenue up 30% in three months." }],
-    "referralCode": "MIKE321"
-  },
-  {
-    "slug": "lisa-wong",
-    "name": "Lisa Wong",
-    "specialties": ["Mindset", "Confidence"],
-    "profileImg": "https://picsum.photos/seed/lisa-wong/200/200",
-    "bio": "Build unshakeable self-belief and own every room you walk into.",
-    "videoEmbed": "https://www.youtube.com/embed/eY52Zsg-KVI",
-    "reviews": [{ "rating": 5, "text": "After working with Lisa, I finally asked for that promotion—and got it!" }],
-    "referralCode": "LISA654"
-  },
-  {
-    "slug": "david-brown",
-    "name": "David Brown",
-    "specialties": ["Time Management", "Organization"],
-    "profileImg": "https://picsum.photos/seed/david-brown/200/200",
-    "bio": "Master your schedule, eliminate overwhelm, and reclaim your free time.",
-    "videoEmbed": "https://www.youtube.com/embed/9bZkp7q19f0",
-    "reviews": [{ "rating": 4, "text": "David’s techniques gave me an extra 10 hours a week!" }],
-    "referralCode": "DAVID987"
-  },
-  {
-    "slug": "emily-davis",
-    "name": "Emily Davis",
-    "specialties": ["Public Speaking", "Communication"],
-    "profileImg": "https://picsum.photos/seed/emily-davis/200/200",
-    "bio": "Speak with clarity and confidence—captivate any audience, every time.",
-    "videoEmbed": "https://www.youtube.com/embed/ktvTqknDobU",
-    "reviews": [{ "rating": 5, "text": "Emily turned my stage fright into stage presence." }],
-    "referralCode": "EMILY321"
-  },
-  {
-    "slug": "carlos-martinez",
-    "name": "Carlos Martinez",
-    "specialties": ["Entrepreneurship", "Leadership"],
-    "profileImg": "https://picsum.photos/seed/carlos-martinez/200/200",
-    "bio": "Serial entrepreneur sharing battlefield-tested leadership blueprints.",
+    "slug": "liam-nguyen",
+    "name": "Liam Nguyen",
+    "specialties": ["Productivity", "Time Management"],
+    "profileImg": "https://randomuser.me/api/portraits/men/6.jpg",
+    "bio": "Boosting your productivity with proven systems and accountability.",
     "videoEmbed": "https://www.youtube.com/embed/OPf0YbXqDm0",
-    "reviews": [{ "rating": 5, "text": "Carlos helped me build a team that doubled our growth." }],
-    "referralCode": "CARLOS159"
+    "reviews": [{ "rating": 4, "text": "I get more done in less time now!" }],
+    "referralCode": "liam-nguyen"
   },
   {
-    "slug": "priya-patel",
-    "name": "Priya Patel",
+    "slug": "olivia-martin",
+    "name": "Olivia Martin",
+    "specialties": ["Confidence", "Self-Esteem"],
+    "profileImg": "https://randomuser.me/api/portraits/women/7.jpg",
+    "bio": "Building your confidence from the inside out.",
+    "videoEmbed": "https://www.youtube.com/embed/ktvTqknDobU",
+    "reviews": [{ "rating": 5, "text": "Olivia helped me believe in myself again." }],
+    "referralCode": "olivia-martin"
+  },
+  {
+    "slug": "noah-kim",
+    "name": "Noah Kim",
+    "specialties": ["Mindset", "Motivation"],
+    "profileImg": "https://randomuser.me/api/portraits/men/8.jpg",
+    "bio": "Transforming your mindset for lasting motivation and growth.",
+    "videoEmbed": "https://www.youtube.com/embed/60ItHLz5WEA",
+    "reviews": [{ "rating": 5, "text": "Noah’s mindset hacks are next level!" }],
+    "referralCode": "noah-kim"
+  },
+  {
+    "slug": "ava-patel",
+    "name": "Ava Patel",
     "specialties": ["Wellness", "Nutrition"],
-    "profileImg": "https://picsum.photos/seed/priya-patel/200/200",
-    "bio": "Transform your relationship with food and feel better from the inside out.",
-    "videoEmbed": "https://www.youtube.com/embed/L_jWHffIx5E",
-    "reviews": [{ "rating": 4, "text": "Priya’s meal plan was a game-changer for my energy and mood." }],
-    "referralCode": "PRIYA753"
+    "profileImg": "https://randomuser.me/api/portraits/women/9.jpg",
+    "bio": "Holistic wellness and nutrition coaching for a healthier you.",
+    "videoEmbed": "https://www.youtube.com/embed/9bZkp7q19f0",
+    "reviews": [{ "rating": 4, "text": "Ava’s nutrition plan changed my life!" }],
+    "referralCode": "ava-patel"
   },
   {
-    "slug": "robert-chen",
-    "name": "Robert Chen",
-    "specialties": ["Mindset", "Career Transition"],
-    "profileImg": "https://picsum.photos/seed/robert-chen/200/200",
-    "bio": "Mindset strategist helping you pivot careers with confidence and clarity.",
-    "videoEmbed": "https://www.youtube.com/embed/fJ9rUzIMcZQ",
-    "reviews": [{ "rating": 5, "text": "Robert’s mindset shift was the key to my career leap." }],
-    "referralCode": "ROBERT852"
+    "slug": "lucas-rodriguez",
+    "name": "Lucas Rodriguez",
+    "specialties": ["Career Coaching", "Interview Prep"],
+    "profileImg": "https://randomuser.me/api/portraits/men/10.jpg",
+    "bio": "Ace your interviews and advance your career with confidence.",
+    "videoEmbed": "https://www.youtube.com/embed/3JZ_D3ELwOQ",
+    "reviews": [{ "rating": 5, "text": "Lucas helped me get my dream job!" }],
+    "referralCode": "lucas-rodriguez"
+  },
+  {
+    "slug": "mia-wilson",
+    "name": "Mia Wilson",
+    "specialties": ["Stress Management", "Burnout Recovery"],
+    "profileImg": "https://randomuser.me/api/portraits/women/11.jpg",
+    "bio": "Recover from burnout and manage stress with proven techniques.",
+    "videoEmbed": "https://www.youtube.com/embed/2Vv-BfVoq4g",
+    "reviews": [{ "rating": 5, "text": "Mia’s stress management tools are a lifesaver." }],
+    "referralCode": "mia-wilson"
+  },
+  {
+    "slug": "ethan-brown",
+    "name": "Ethan Brown",
+    "specialties": ["Leadership", "Executive Coaching"],
+    "profileImg": "https://randomuser.me/api/portraits/men/12.jpg",
+    "bio": "Executive coaching for leaders who want to make an impact.",
+    "videoEmbed": "https://www.youtube.com/embed/09R8_2nJtjg",
+    "reviews": [{ "rating": 5, "text": "Ethan’s leadership coaching is top notch." }],
+    "referralCode": "ethan-brown"
+  },
+  {
+    "slug": "isabella-murphy",
+    "name": "Isabella Murphy",
+    "specialties": ["Self-Esteem", "Body Image"],
+    "profileImg": "https://randomuser.me/api/portraits/women/13.jpg",
+    "bio": "Empowering you to love yourself and your body.",
+    "videoEmbed": "https://www.youtube.com/embed/uelHwf8o7_U",
+    "reviews": [{ "rating": 4, "text": "Isabella’s support changed my self-image." }],
+    "referralCode": "isabella-murphy"
+  },
+  {
+    "slug": "jack-miller",
+    "name": "Jack Miller",
+    "specialties": ["Motivation", "Goal Setting"],
+    "profileImg": "https://randomuser.me/api/portraits/men/14.jpg",
+    "bio": "Setting and smashing your goals, one step at a time.",
+    "videoEmbed": "https://www.youtube.com/embed/6JCLY0Rlx6Q",
+    "reviews": [{ "rating": 5, "text": "Jack’s goal setting system works!" }],
+    "referralCode": "jack-miller"
+  },
+  {
+    "slug": "charlotte-thomas",
+    "name": "Charlotte Thomas",
+    "specialties": ["Parenting", "Family Coaching"],
+    "profileImg": "https://randomuser.me/api/portraits/women/15.jpg",
+    "bio": "Supporting parents and families to thrive together.",
+    "videoEmbed": "https://www.youtube.com/embed/OPf0YbXqDm0",
+    "reviews": [{ "rating": 5, "text": "Charlotte’s parenting advice is gold." }],
+    "referralCode": "charlotte-thomas"
+  },
+  {
+    "slug": "benjamin-evans",
+    "name": "Benjamin Evans",
+    "specialties": ["Financial Coaching", "Budgeting"],
+    "profileImg": "https://randomuser.me/api/portraits/men/16.jpg",
+    "bio": "Take control of your finances and build wealth with confidence.",
+    "videoEmbed": "https://www.youtube.com/embed/5NV6Rdv1a3I",
+    "reviews": [{ "rating": 4, "text": "Benjamin helped me finally stick to a budget." }],
+    "referralCode": "benjamin-evans"
+  },
+  {
+    "slug": "amelia-harris",
+    "name": "Amelia Harris",
+    "specialties": ["Anxiety Coaching", "Mindfulness"],
+    "profileImg": "https://randomuser.me/api/portraits/women/17.jpg",
+    "bio": "Mindfulness and anxiety coaching for a calmer life.",
+    "videoEmbed": "https://www.youtube.com/embed/ktvTqknDobU",
+    "reviews": [{ "rating": 5, "text": "Amelia’s mindfulness exercises are so helpful!" }],
+    "referralCode": "amelia-harris"
+  },
+  {
+    "slug": "logan-scott",
+    "name": "Logan Scott",
+    "specialties": ["Motivation", "Focus"],
+    "profileImg": "https://randomuser.me/api/portraits/men/18.jpg",
+    "bio": "Helping you stay motivated and focused on your goals.",
+    "videoEmbed": "https://www.youtube.com/embed/2vjPBrBU-TM",
+    "reviews": [{ "rating": 4, "text": "Logan’s focus techniques are a game changer." }],
+    "referralCode": "logan-scott"
+  },
+  {
+    "slug": "ella-walker",
+    "name": "Ella Walker",
+    "specialties": ["Wellness", "Nutrition"],
+    "profileImg": "https://randomuser.me/api/portraits/women/19.jpg",
+    "bio": "Personalized wellness and nutrition plans for a healthier you.",
+    "videoEmbed": "https://www.youtube.com/embed/L_jWHffIx5E",
+    "reviews": [{ "rating": 5, "text": "Ella’s nutrition advice is spot on!" }],
+    "referralCode": "ella-walker"
+  },
+  {
+    "slug": "henry-young",
+    "name": "Henry Young",
+    "specialties": ["Career Coaching", "Interview Prep"],
+    "profileImg": "https://randomuser.me/api/portraits/men/20.jpg",
+    "bio": "Land your dream job with expert interview coaching.",
+    "videoEmbed": "https://www.youtube.com/embed/3JZ_D3ELwOQ",
+    "reviews": [{ "rating": 5, "text": "Henry’s interview prep is the best!" }],
+    "referralCode": "henry-young"
+  },
+  {
+    "slug": "grace-baker",
+    "name": "Grace Baker",
+    "specialties": ["Mindset", "Confidence"],
+    "profileImg": "https://randomuser.me/api/portraits/women/21.jpg",
+    "bio": "Building confidence and a growth mindset for success.",
+    "videoEmbed": "https://www.youtube.com/embed/eY52Zsg-KVI",
+    "reviews": [{ "rating": 5, "text": "Grace’s mindset coaching is amazing!" }],
+    "referralCode": "grace-baker"
   }
 ]
 
