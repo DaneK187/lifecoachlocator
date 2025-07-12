@@ -1,108 +1,16 @@
 "use client";
 
-import Link from 'next/link';
 import { useState } from 'react';
 import coaches from '../data/coaches.json';
 import cities from './data/cities.json';
 import ChatWidget from "./components/ChatWidget";
 
-const homepageReviews = [
-	{
-		name: 'Tara',
-		text: 'My coach helped me find clarity and confidence. The process was so easy and supportive!',
-		avatar: 'https://randomuser.me/api/portraits/women/44.jpg',
-	},
-	{
-		name: 'Alex',
-		text: 'I landed my dream job after just a few sessions. Highly recommend to anyone feeling stuck!',
-		avatar: 'https://randomuser.me/api/portraits/men/32.jpg',
-	},
-	{
-		name: 'Priya',
-		text: 'The wellness coaching changed my life. I feel healthier and happier than ever.',
-		avatar: 'https://randomuser.me/api/portraits/women/68.jpg',
-	},
-	{
-		name: 'Marcus',
-		text: 'My coach gave me the tools to manage stress and finally enjoy my work again.',
-		avatar: 'https://randomuser.me/api/portraits/men/65.jpg',
-	},
-	{
-		name: 'Sophie',
-		text: 'I never thought I could be this confident. The support was incredible!',
-		avatar: 'https://randomuser.me/api/portraits/women/12.jpg',
-	},
-	{
-		name: 'Diego',
-		text: 'The relationship coaching helped me communicate better and build stronger connections.',
-		avatar: 'https://randomuser.me/api/portraits/men/41.jpg',
-	},
-	{
-		name: 'Mina',
-		text: 'I loved the personalized approach. My coach really listened and understood my needs.',
-		avatar: 'https://randomuser.me/api/portraits/women/23.jpg',
-	},
-	{
-		name: 'James',
-		text: 'From burnout to balance—my coach made all the difference.',
-		avatar: 'https://randomuser.me/api/portraits/men/77.jpg',
-	},
-	{
-		name: 'Lila',
-		text: 'I feel empowered and motivated every day now. Thank you!',
-		avatar: 'https://randomuser.me/api/portraits/women/36.jpg',
-	},
-	{
-		name: 'Omar',
-		text: 'The best investment I made in myself this year.',
-		avatar: 'https://randomuser.me/api/portraits/men/19.jpg',
-	},
-	{
-		name: 'Grace',
-		text: 'I found my purpose and passion with the help of my coach.',
-		avatar: 'https://randomuser.me/api/portraits/women/50.jpg',
-	},
-	{
-		name: 'Ben',
-		text: 'The process was seamless and the results were real.',
-		avatar: 'https://randomuser.me/api/portraits/men/12.jpg',
-	},
-];
+const featuredCoaches = coaches.slice(0, 3);
+const popularCities = cities
+	.sort((a, b) => b.population - a.population)
+	.slice(0, 12);
 
-const specialties = [
-	{
-		name: 'Confidence',
-		image: 'https://images.unsplash.com/photo-1519125323398-675f0ddb6308?auto=format&fit=crop&w=400&q=80',
-	},
-	{
-		name: 'Career Coaching',
-		image: 'https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=400&q=80',
-	},
-	{
-		name: 'Relationships',
-		image: 'https://images.unsplash.com/photo-1465101046530-73398c7f28ca?auto=format&fit=crop&w=400&q=80',
-	},
-	{
-		name: 'Wellness',
-		image: 'https://images.unsplash.com/photo-1503676382389-4809596d5290?auto=format&fit=crop&w=400&q=80',
-	},
-	{
-		name: 'Mindset',
-		image: 'https://images.unsplash.com/photo-1464983953574-0892a716854b?auto=format&fit=crop&w=400&q=80',
-	},
-	{
-		name: 'Productivity',
-		image: 'https://images.unsplash.com/photo-1515378791036-0648a3ef77b2?auto=format&fit=crop&w=400&q=80',
-	},
-	{
-		name: 'Stress Management',
-		image: 'https://images.unsplash.com/photo-1465101178521-c1a9136a3b99?auto=format&fit=crop&w=400&q=80',
-	},
-	{
-		name: 'Leadership',
-		image: 'https://images.unsplash.com/photo-1465101046530-73398c7f28ca?auto=format&fit=crop&w=400&q=80',
-	},
-];
+// ...existing code...
 
 function SimulatedAIMatchSection({ coaches }) {
 	const [input, setInput] = useState("");
@@ -214,6 +122,8 @@ function HomePage() {
 			a: 'Absolutely! Most coaches offer virtual sessions via video or phone.',
 		},
 	];
+
+// ...existing code...
 
 	return (
 		<div className="relative">
