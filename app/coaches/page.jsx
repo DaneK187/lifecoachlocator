@@ -26,19 +26,25 @@ export default function CoachSearchPage() {
 
   return (
     <div className="p-8 max-w-7xl mx-auto">
-      <h1 className="text-4xl font-extrabold mb-2 text-center text-blue-700">
-        Find Your Life Coach
-      </h1>
-      <p className="text-center text-gray-600 mb-8 text-lg">
-        Browse, filter, and connect with top coaches to help you reach your goals.
-      </p>
+      <div className="bg-blue-50 rounded-xl shadow p-8 mb-10 flex flex-col items-center w-full max-w-3xl mx-auto">
+        <h1 className="text-3xl sm:text-4xl font-extrabold text-center text-blue-700 mb-4">
+          Tell us what's going on—we'll find your perfect coach right now.
+        </h1>
+        <p className="text-lg sm:text-xl text-center text-blue-900 mb-4 font-semibold max-w-2xl">
+          No quizzes. No forms. Just speak or type what you're facing.<br />
+          We'll instantly connect you with a real coach who's ready to help.
+        </p>
+        <div className="text-lg sm:text-xl font-bold text-green-700 bg-green-100 px-6 py-2 rounded-full shadow mt-2">
+          Get 5 minutes free <span className="text-green-900 font-extrabold">NO COMMITMENT</span>
+        </div>
+      </div>
 
       {/* Filters */}
       <div className="flex flex-col sm:flex-row gap-4 mb-8 justify-center items-center">
         <div>
-          <label className="mr-2 font-semibold">Specialty:</label>
+          <label className="mr-2 font-semibold text-black">Specialty:</label>
           <select
-            className="border px-2 py-1 rounded"
+            className="border px-2 py-1 rounded w-56 text-black placeholder-black/80 font-semibold bg-white/80 focus:bg-white focus:placeholder-black"
             value={selected || ''}
             onChange={e =>
               setSelected(e.target.value === '' ? null : e.target.value)
@@ -55,7 +61,7 @@ export default function CoachSearchPage() {
         <input
           type="text"
           placeholder="Search by name or bio..."
-          className="border px-2 py-1 rounded w-64"
+          className="border px-2 py-1 rounded w-56 text-black placeholder-black/80 font-semibold bg-white/80 focus:bg-white focus:placeholder-black"
           value={search}
           onChange={e => setSearch(e.target.value)}
         />
@@ -92,7 +98,7 @@ export default function CoachSearchPage() {
                 </span>
               ))}
             </div>
-            <p className="text-gray-700 text-center mb-3 text-sm flex-1">
+            <p className="text-blue-900 text-center mb-3 text-sm flex-1">
               {coach.bio}
             </p>
             <div className="flex flex-col gap-2 mt-2">
@@ -124,7 +130,7 @@ export default function CoachSearchPage() {
           </div>
         ))}
         {filteredCoaches.length === 0 && (
-          <div className="col-span-full text-center text-gray-500 py-12 text-lg">
+          <div className="col-span-full text-center text-blue-700 py-12 text-lg">
             No coaches found. Try a different search or filter.
           </div>
         )}

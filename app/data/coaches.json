@@ -1,1 +1,233 @@
-[]
+[
+  {
+    "slug": "jane-doe",
+    "name": "Jane Doe",
+    "profileImg": "https://randomuser.me/api/portraits/women/1.jpg",
+    "bio": "Empowering clients to achieve their goals and live their best lives.",
+    "specialties": ["Career", "Wellness", "Relationships"],
+    "referralCode": "jane-doe-coach",
+    "reviews": [
+      {"rating": 5, "text": "Jane helped me find clarity and confidence!"}
+    ]
+  },
+  {
+    "slug": "john-smith",
+    "name": "John Smith",
+    "profileImg": "https://randomuser.me/api/portraits/men/2.jpg",
+    "bio": "Certified life coach with a passion for personal growth and transformation.",
+    "specialties": ["Mindset", "Productivity", "Leadership"],
+    "referralCode": "john-smith-coach",
+    "reviews": [
+      {"rating": 5, "text": "John's coaching changed my life!"}
+    ]
+  },
+  {
+    "slug": "emma-wilson",
+    "name": "Emma Wilson",
+    "profileImg": "https://randomuser.me/api/portraits/women/3.jpg",
+    "bio": "Helping you unlock your full potential and achieve lasting happiness.",
+    "specialties": ["Happiness", "Confidence", "Stress"],
+    "referralCode": "emma-wilson-coach",
+    "reviews": [
+      {"rating": 4, "text": "Emma is a wonderful listener and motivator."}
+    ]
+  },
+  {
+    "slug": "michael-lee",
+    "name": "Michael Lee",
+    "profileImg": "https://randomuser.me/api/portraits/men/4.jpg",
+    "bio": "Guiding clients through transitions and new beginnings.",
+    "specialties": ["Transitions", "Purpose", "Motivation"],
+    "referralCode": "michael-lee-coach",
+    "reviews": [
+      {"rating": 5, "text": "Michael helped me navigate a tough career change."}
+    ]
+  },
+  {
+    "slug": "olivia-brown",
+    "name": "Olivia Brown",
+    "profileImg": "https://randomuser.me/api/portraits/women/5.jpg",
+    "bio": "Supporting women in business and life to reach their dreams.",
+    "specialties": ["Women", "Business", "Empowerment"],
+    "referralCode": "olivia-brown-coach",
+    "reviews": [
+      {"rating": 5, "text": "Olivia's support was invaluable!"}
+    ]
+  },
+  {
+    "slug": "david-jones",
+    "name": "David Jones",
+    "profileImg": "https://randomuser.me/api/portraits/men/6.jpg",
+    "bio": "Life coach for men seeking purpose, balance, and fulfillment.",
+    "specialties": ["Men", "Balance", "Purpose"],
+    "referralCode": "david-jones-coach",
+    "reviews": [
+      {"rating": 4, "text": "David helped me find work-life balance."}
+    ]
+  },
+  {
+    "slug": "sophia-martin",
+    "name": "Sophia Martin",
+    "profileImg": "https://randomuser.me/api/portraits/women/7.jpg",
+    "bio": "Transforming lives through positive psychology and coaching.",
+    "specialties": ["Positive Psychology", "Transformation", "Wellness"],
+    "referralCode": "sophia-martin-coach",
+    "reviews": [
+      {"rating": 5, "text": "Sophia's positivity is contagious!"}
+    ]
+  },
+  {
+    "slug": "liam-taylor",
+    "name": "Liam Taylor",
+    "profileImg": "https://randomuser.me/api/portraits/men/8.jpg",
+    "bio": "Helping clients set and achieve meaningful goals.",
+    "specialties": ["Goals", "Motivation", "Accountability"],
+    "referralCode": "liam-taylor-coach",
+    "reviews": [
+      {"rating": 4, "text": "Liam kept me on track and motivated."}
+    ]
+  },
+  {
+    "slug": "ava-moore",
+    "name": "Ava Moore",
+    "profileImg": "https://randomuser.me/api/portraits/women/9.jpg",
+    "bio": "Empowering young adults to thrive in all areas of life.",
+    "specialties": ["Young Adults", "Confidence", "Career"],
+    "referralCode": "ava-moore-coach",
+    "reviews": [
+      {"rating": 5, "text": "Ava helped me land my first job!"}
+    ]
+  },
+  {
+    "slug": "noah-thomas",
+    "name": "Noah Thomas",
+    "profileImg": "https://randomuser.me/api/portraits/men/10.jpg",
+    "bio": "Coaching for resilience, growth, and personal success.",
+    "specialties": ["Resilience", "Growth", "Success"],
+    "referralCode": "noah-thomas-coach",
+    "reviews": [
+      {"rating": 5, "text": "Noah's advice was practical and inspiring."}
+    ]
+  },
+  {
+    "slug": "mia-harris",
+    "name": "Mia Harris",
+    "profileImg": "https://randomuser.me/api/portraits/women/11.jpg",
+    "bio": "Helping clients overcome obstacles and achieve breakthroughs.",
+    "specialties": ["Breakthroughs", "Obstacles", "Empowerment"],
+    "referralCode": "mia-harris-coach",
+    "reviews": [
+      {"rating": 4, "text": "Mia helped me get unstuck!"}
+    ]
+  },
+  {
+    "slug": "lucas-white",
+    "name": "Lucas White",
+    "profileImg": "https://randomuser.me/api/portraits/men/12.jpg",
+    "bio": "Guiding clients to clarity and purpose in life and work.",
+    "specialties": ["Clarity", "Purpose", "Work"],
+    "referralCode": "lucas-white-coach",
+    "reviews": [
+      {"rating": 5, "text": "Lucas is a fantastic coach!"}
+    ]
+  },
+  {
+    "slug": "isabella-hall",
+    "name": "Isabella Hall",
+    "profileImg": "https://randomuser.me/api/portraits/women/13.jpg",
+    "bio": "Supporting clients in building confidence and self-esteem.",
+    "specialties": ["Confidence", "Self-Esteem", "Empowerment"],
+    "referralCode": "isabella-hall-coach",
+    "reviews": [
+      {"rating": 5, "text": "Isabella helped me believe in myself."}
+    ]
+  },
+  {
+    "slug": "ethan-young",
+    "name": "Ethan Young",
+    "profileImg": "https://randomuser.me/api/portraits/men/14.jpg",
+    "bio": "Helping clients achieve balance and fulfillment.",
+    "specialties": ["Balance", "Fulfillment", "Wellness"],
+    "referralCode": "ethan-young-coach",
+    "reviews": [
+      {"rating": 4, "text": "Ethan's coaching was life-changing."}
+    ]
+  },
+  {
+    "slug": "charlotte-king",
+    "name": "Charlotte King",
+    "profileImg": "https://randomuser.me/api/portraits/women/15.jpg",
+    "bio": "Empowering women to lead and succeed.",
+    "specialties": ["Women", "Leadership", "Success"],
+    "referralCode": "charlotte-king-coach",
+    "reviews": [
+      {"rating": 5, "text": "Charlotte is an inspiring leader!"}
+    ]
+  },
+  {
+    "slug": "logan-scott",
+    "name": "Logan Scott",
+    "profileImg": "https://randomuser.me/api/portraits/men/16.jpg",
+    "bio": "Coaching for personal growth and professional development.",
+    "specialties": ["Growth", "Development", "Career"],
+    "referralCode": "logan-scott-coach",
+    "reviews": [
+      {"rating": 4, "text": "Logan helped me get promoted!"}
+    ]
+  },
+  {
+    "slug": "amelia-green",
+    "name": "Amelia Green",
+    "profileImg": "https://randomuser.me/api/portraits/women/17.jpg",
+    "bio": "Helping clients find joy and meaning in everyday life.",
+    "specialties": ["Joy", "Meaning", "Everyday Life"],
+    "referralCode": "amelia-green-coach",
+    "reviews": [
+      {"rating": 5, "text": "Amelia's sessions are uplifting!"}
+    ]
+  },
+  {
+    "slug": "benjamin-baker",
+    "name": "Benjamin Baker",
+    "profileImg": "https://randomuser.me/api/portraits/men/18.jpg",
+    "bio": "Guiding clients to overcome fear and embrace change.",
+    "specialties": ["Fear", "Change", "Courage"],
+    "referralCode": "benjamin-baker-coach",
+    "reviews": [
+      {"rating": 5, "text": "Benjamin helped me conquer my fears."}
+    ]
+  },
+  {
+    "slug": "harper-adams",
+    "name": "Harper Adams",
+    "profileImg": "https://randomuser.me/api/portraits/women/19.jpg",
+    "bio": "Supporting clients through transitions and new chapters.",
+    "specialties": ["Transitions", "New Chapters", "Support"],
+    "referralCode": "harper-adams-coach",
+    "reviews": [
+      {"rating": 4, "text": "Harper is a great listener and guide."}
+    ]
+  },
+  {
+    "slug": "jackson-morris",
+    "name": "Jackson Morris",
+    "profileImg": "https://randomuser.me/api/portraits/men/20.jpg",
+    "bio": "Helping clients set and achieve ambitious goals.",
+    "specialties": ["Goals", "Ambition", "Achievement"],
+    "referralCode": "jackson-morris-coach",
+    "reviews": [
+      {"rating": 5, "text": "Jackson's coaching is top-notch!"}
+    ]
+  },
+  {
+    "slug": "ella-cooper",
+    "name": "Ella Cooper",
+    "profileImg": "https://randomuser.me/api/portraits/women/21.jpg",
+    "bio": "Empowering clients to live authentically and confidently.",
+    "specialties": ["Authenticity", "Confidence", "Empowerment"],
+    "referralCode": "ella-cooper-coach",
+    "reviews": [
+      {"rating": 5, "text": "Ella helped me find my true self."}
+    ]
+  }
+]

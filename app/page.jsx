@@ -1,6 +1,10 @@
+"use client";
+
 import Link from 'next/link';
+import { useState } from 'react';
 import coaches from '../data/coaches.json';
-import cities from './data/coaches.json';
+import cities from './data/cities.json';
+import ChatWidget from "./components/ChatWidget";
 
 const homepageReviews = [
 	{
@@ -100,7 +104,87 @@ const specialties = [
 	},
 ];
 
-export default function HomePage() {
+function SimulatedAIMatchSection({ coaches }) {
+	const [input, setInput] = useState("");
+	const [result, setResult] = useState(null);
+	const [loading, setLoading] = useState(false);
+
+	function handleMatch() {
+		setLoading(true);
+		setTimeout(() => {
+			// Simulate NLP: match keywords to specialties
+			const text = input.toLowerCase();
+			const tags = [];
+			if (text.includes("burnout")) tags.push("Burnout Recovery");
+			if (text.includes("motivation")) tags.push("Motivation");
+			if (text.includes("career")) tags.push("Career Direction");
+			if (text.includes("relationship")) tags.push("Relationships");
+			if (text.includes("wellness")) tags.push("Wellness");
+			if (text.includes("stress")) tags.push("Stress Management");
+			if (text.includes("leadership")) tags.push("Leadership");
+			if (text.includes("productivity")) tags.push("Productivity");
+			if (text.includes("mindset")) tags.push("Mindset");
+			// Fallback
+			if (tags.length === 0) tags.push("Motivation");
+			// Find coaches with any of these specialties
+			const matched = coaches.filter(c => c.specialties.some(s => tags.includes(s)));
+			setResult({ tags, matched: matched.slice(0, 3) });
+			setLoading(false);
+		}, 1200);
+	}
+
+	return (
+		<section className="max-w-2xl mx-auto bg-white rounded-xl shadow-lg p-8 mt-12 mb-16 text-center border-t-4 border-blue-400">
+			<h2 className="text-3xl font-bold text-blue-900 mb-2 flex items-center justify-center gap-2">
+				Say what’s been on your mind — we’ll find your person.
+			</h2>
+			<p className="text-blue-700 mb-6 text-lg">
+				No quizzes. No filters. Just speak or type in your own words. Whether you're stuck, overwhelmed, or just ready for a change — we’ll match you with the one coach who’s guided people through exactly what you’re facing. The more real you are, the better your match.
+			</p>
+			<div className="flex flex-col sm:flex-row gap-3 items-center justify-center mb-2">
+				<textarea
+					className="border border-blue-200 rounded-lg px-4 py-3 w-full sm:w-96 text-lg focus:outline-none focus:ring-2 focus:ring-blue-400"
+					rows={2}
+					placeholder="e.g. “I feel stuck in my career. I’ve lost motivation and don’t know what direction to take.” (The more you share, the better your match.)"
+					value={input}
+					onChange={e => setInput(e.target.value)}
+				/>
+				<button
+					className="bg-blue-700 hover:bg-blue-800 text-white font-bold px-6 py-3 rounded-lg transition shadow text-lg flex items-center justify-center"
+					onClick={handleMatch}
+					disabled={loading || !input.trim()}
+				>
+					{loading ? 'Matching...' : 'Find My Best Coach'}
+				</button>
+			</div>
+			<div className="text-gray-600 text-sm mb-4 mt-2">
+				We don’t save any of this. This isn’t a form — it’s a shortcut to the one coach on LifeCoachConnector.com who truly gets you.
+			</div>
+			{result && (
+				<div className="mt-6 text-left">
+					<div className="text-blue-800 font-semibold mb-2">
+						Matched Focus Areas: {result.tags.join(' · ')}
+					</div>
+					<div className="grid sm:grid-cols-2 gap-4">
+						{result.matched.map(coach => (
+							<div key={coach.slug} className="bg-blue-50 border border-blue-200 rounded-lg p-4 flex gap-4 items-center">
+								<img src={coach.profileImg || `https://randomuser.me/api/portraits/lego/${Math.abs(Array.from(coach.slug || coach.name || '0').reduce((acc, c) => acc + c.charCodeAt(0), 0)) % 10}.jpg`} alt={coach.name} className="w-16 h-16 rounded-full object-cover border-2 border-blue-100" />
+								<div>
+									<div className="font-bold text-blue-900">{coach.name}</div>
+									<div className="text-xs text-blue-700 mb-1">{coach.specialties.join(', ')}</div>
+									<div className="text-gray-700 text-sm line-clamp-2">{coach.bio}</div>
+								</div>
+							</div>
+						))}
+						{result.matched.length === 0 && <div className="text-gray-500 col-span-2">No coaches found for your needs.</div>}
+					</div>
+				</div>
+			)}
+		</section>
+	);
+}
+
+function HomePage() {
 	// Pick 3 featured coaches
 	const featuredCoaches = coaches.slice(0, 3);
 	// Get 12 most populous cities for 'Popular Cities'
@@ -132,318 +216,129 @@ export default function HomePage() {
 	];
 
 	return (
-		<main className="bg-gray-50 min-h-screen">
-			{/* Hero Section */}
-			<section className="bg-gradient-to-br from-blue-100 to-blue-300 py-20 px-4 text-center shadow-md">
-				<h1 className="text-5xl md:text-6xl font-extrabold text-blue-900 mb-6 tracking-tight drop-shadow-lg">
-					Find a Life Coach Near You
-				</h1>
-				<p className="text-xl md:text-2xl text-blue-800 mb-10 max-w-2xl mx-auto">
-					Get matched with top-rated life coaches to help you achieve your goals,
-					improve your mindset, and live your best life.
-				</p>
-				<form className="flex flex-col md:flex-row gap-3 justify-center max-w-2xl mx-auto mb-4">
-					<input
-						type="text"
-						placeholder="What do you need help with? (e.g. confidence, career, relationships)"
-						className="px-4 py-4 rounded-lg border border-blue-200 flex-1 focus:outline-none focus:ring-2 focus:ring-blue-400 text-lg shadow"
-					/>
-					<input
-						type="text"
-						placeholder="Your location (city or zip)"
-						className="px-4 py-4 rounded-lg border border-blue-200 flex-1 focus:outline-none focus:ring-2 focus:ring-blue-400 text-lg shadow"
-					/>
-					<Link
-						href="/coaches"
-						className="bg-blue-700 hover:bg-blue-800 text-white font-bold px-8 py-4 rounded-lg transition shadow text-lg flex items-center justify-center"
-					>
-						Search
-					</Link>
-				</form>
-				<div className="mt-4 text-blue-700 text-base">
-					<span className="font-semibold">Popular:</span> Confidence, Career,
-					Relationships, Wellness, Mindset
+		<div className="relative">
+			{/* Hero/Intro Section */}
+			<section className="py-10 px-2 w-full max-w-7xl mx-auto text-center">
+				<div className="bg-blue-50 rounded-2xl shadow-lg p-12 flex flex-col items-center w-full">
+					<h1 className="text-5xl sm:text-6xl font-extrabold text-center text-blue-700 mb-6">
+						Tell us what's going on—we'll find your perfect coach right now.
+					</h1>
+					<p className="text-2xl sm:text-3xl text-center text-blue-900 mb-6 font-semibold max-w-5xl w-full">
+						No quizzes. No forms. Just speak or type what you're facing.<br />
+						We'll instantly connect you with a real coach who's ready to help.
+					</p>
+					<div className="text-2xl sm:text-3xl font-bold text-green-700 bg-green-100 px-8 py-4 rounded-full shadow mt-2">
+						Get 5 minutes free <span className="text-green-900 font-extrabold">NO COMMITMENT</span>
+					</div>
 				</div>
 			</section>
 
-			{/* Popular Specialties Section */}
-			<section className="max-w-7xl mx-auto py-10 px-4">
-				<h2 className="text-2xl md:text-3xl font-bold text-blue-900 mb-6">
-					Popular Life Coaching Specialties
-				</h2>
-				<div className="flex gap-6 overflow-x-auto pb-4 hide-scrollbar">
-					{specialties.map((spec, i) => (
-						<Link
-							key={spec.name}
-							href={{ pathname: '/coaches', query: { specialty: spec.name } }}
-							className="min-w-[220px] max-w-[220px] h-48 rounded-xl shadow-lg bg-gradient-to-t from-blue-200 via-white to-gray-100 flex flex-col justify-end relative group border border-blue-100 hover:shadow-2xl transition overflow-hidden"
-							style={{
-								backgroundImage: `url(${spec.image})`,
-								backgroundSize: 'cover',
-								backgroundPosition: 'center',
-							}}
-						>
-							<div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent rounded-xl group-hover:from-blue-800/60 transition" />
-							<span className="relative z-10 text-white text-lg font-semibold p-4 drop-shadow-lg">
-								{spec.name}
-							</span>
-							{/* Decorative accent */}
-							<div className="absolute bottom-0 left-0 w-full h-2 bg-gradient-to-r from-blue-400 via-green-300 to-purple-400 opacity-80" />
-							{i % 2 === 0 && (
-								<div className="absolute top-2 right-2 w-3 h-3 bg-yellow-300 rounded-full shadow-lg" />
-							)}
-						</Link>
+			{/* Instant Chat Match Section (anchor for CTA) */}
+			<section id="live-chat" className="py-12 px-4 max-w-3xl mx-auto">
+				<div className="bg-white rounded-2xl shadow-lg p-8">
+					<h2 className="text-2xl font-bold mb-2 text-blue-700 text-center">Instant Live Chat Match</h2>
+					<p className="text-center text-gray-700 mb-4">Type your issue below and get matched instantly with a real coach.</p>
+					{/* The floating chat widget will always be available, but you can also add a static chat entry here if desired. */}
+					<div className="text-center text-gray-400 italic">(Use the chat bubble at bottom right to start your session!)</div>
+				</div>
+			</section>
+
+			<SimulatedAIMatchSection coaches={coaches} />
+			{/* Featured Coaches Section */}
+			<section className="py-12 px-4 max-w-5xl mx-auto">
+				<h2 className="text-3xl font-semibold text-center mb-8">Featured Coaches</h2>
+				<div className="grid sm:grid-cols-2 md:grid-cols-3 gap-8">
+					{/* Example featured coaches, static for now */}
+					<div className="bg-white rounded-xl shadow p-6 flex flex-col items-center">
+						<img src="https://randomuser.me/api/portraits/women/1.jpg" alt="Jane Doe" className="w-24 h-24 rounded-full mb-3 border-4 border-blue-100 shadow" />
+						<div className="font-bold text-lg mb-1">Jane Doe</div>
+						<div className="text-blue-700 text-sm mb-2">Career, Wellness, Relationships</div>
+						<div className="text-gray-700 text-center text-sm">Empowering clients to achieve their goals and live their best lives.</div>
+					</div>
+					<div className="bg-white rounded-xl shadow p-6 flex flex-col items-center">
+						<img src="https://randomuser.me/api/portraits/men/2.jpg" alt="John Smith" className="w-24 h-24 rounded-full mb-3 border-4 border-blue-100 shadow" />
+						<div className="font-bold text-lg mb-1">John Smith</div>
+						<div className="text-blue-700 text-sm mb-2">Mindset, Productivity, Leadership</div>
+						<div className="text-gray-700 text-center text-sm">Certified life coach with a passion for personal growth and transformation.</div>
+					</div>
+					<div className="bg-white rounded-xl shadow p-6 flex flex-col items-center">
+						<img src="https://randomuser.me/api/portraits/women/3.jpg" alt="Emma Wilson" className="w-24 h-24 rounded-full mb-3 border-4 border-blue-100 shadow" />
+						<div className="font-bold text-lg mb-1">Emma Wilson</div>
+						<div className="text-blue-700 text-sm mb-2">Happiness, Confidence, Stress</div>
+						<div className="text-gray-700 text-center text-sm">Helping you unlock your full potential and achieve lasting happiness.</div>
+					</div>
+				</div>
+			</section>
+
+			{/* Popular Chat Topics Section */}
+			<section className="py-12 px-4 max-w-4xl mx-auto">
+				<h2 className="text-3xl font-semibold text-center mb-6">Popular Chat Topics</h2>
+				<div className="flex flex-wrap justify-center gap-3">
+					{['Confidence', 'Anxiety', 'Life Direction', 'Burnout', 'Motivation', 'Relationships', 'Career Change', 'Stress', 'Work-Life Balance', 'Goal Setting'].map(topic => (
+						<span key={topic} className="bg-blue-100 text-blue-800 px-4 py-2 rounded-full font-semibold text-sm shadow">{topic}</span>
 					))}
 				</div>
 			</section>
 
-			{/* How it works */}
-			<section className="max-w-5xl mx-auto py-16 px-4">
-				<h2 className="text-3xl md:text-4xl font-bold text-center mb-12 text-blue-900">
-					How it works
-				</h2>
-				<div className="grid md:grid-cols-3 gap-10">
-					<div className="bg-white rounded-xl shadow p-8 flex flex-col items-center border-t-4 border-blue-400">
-						<div className="bg-blue-100 text-blue-700 rounded-full w-16 h-16 flex items-center justify-center text-3xl font-bold mb-4">
-							1
-						</div>
-						<h3 className="font-semibold text-xl mb-2">
-							Tell us what you need
-						</h3>
-						<p className="text-gray-600 text-center">
-							Answer a few quick questions about your goals and preferences.
-						</p>
+			{/* Interactive Poll Section */}
+			<section className="py-12 px-4 max-w-2xl mx-auto">
+				<h2 className="text-2xl font-semibold text-center mb-4">What's your biggest coaching need?</h2>
+				<div className="flex flex-col gap-3">
+					<button className="bg-white border border-blue-200 rounded-lg px-6 py-3 text-blue-700 font-semibold hover:bg-blue-50 transition">Finding direction in life</button>
+					<button className="bg-white border border-blue-200 rounded-lg px-6 py-3 text-blue-700 font-semibold hover:bg-blue-50 transition">Building confidence</button>
+					<button className="bg-white border border-blue-200 rounded-lg px-6 py-3 text-blue-700 font-semibold hover:bg-blue-50 transition">Managing stress or anxiety</button>
+					<button className="bg-white border border-blue-200 rounded-lg px-6 py-3 text-blue-700 font-semibold hover:bg-blue-50 transition">Improving relationships</button>
+				</div>
+				<div className="text-center text-gray-400 text-xs mt-2">(Poll is for demo only)</div>
+			</section>
+
+			{/* Available Now Section */}
+			<section className="py-12 px-4 max-w-4xl mx-auto">
+				<h2 className="text-2xl font-semibold text-center mb-6">Available Now</h2>
+				<div className="flex flex-wrap justify-center gap-6">
+					<div className="flex items-center gap-3 bg-green-50 border border-green-200 rounded-full px-5 py-2 shadow">
+						<span className="w-4 h-4 bg-green-400 rounded-full inline-block"></span>
+						<img src="https://randomuser.me/api/portraits/women/1.jpg" alt="Jane Doe" className="w-8 h-8 rounded-full border-2 border-white" />
+						<span className="font-semibold text-green-800">Jane Doe</span>
+						<span className="text-xs text-green-700">Online now</span>
 					</div>
-					<div className="bg-white rounded-xl shadow p-8 flex flex-col items-center border-t-4 border-blue-400">
-						<div className="bg-blue-100 text-blue-700 rounded-full w-16 h-16 flex items-center justify-center text-3xl font-bold mb-4">
-							2
-						</div>
-						<h3 className="font-semibold text-xl mb-2">
-							Get matched instantly
-						</h3>
-						<p className="text-gray-600 text-center">
-							We’ll connect you with top life coaches who fit your needs.
-						</p>
-					</div>
-					<div className="bg-white rounded-xl shadow p-8 flex flex-col items-center border-t-4 border-blue-400">
-						<div className="bg-blue-100 text-blue-700 rounded-full w-16 h-16 flex items-center justify-center text-3xl font-bold mb-4">
-							3
-						</div>
-						<h3 className="font-semibold text-xl mb-2">Start your journey</h3>
-						<p className="text-gray-600 text-center">
-							Message, book, and begin working with your chosen coach.
-						</p>
+					<div className="flex items-center gap-3 bg-green-50 border border-green-200 rounded-full px-5 py-2 shadow">
+						<span className="w-4 h-4 bg-green-400 rounded-full inline-block"></span>
+						<img src="https://randomuser.me/api/portraits/men/2.jpg" alt="John Smith" className="w-8 h-8 rounded-full border-2 border-white" />
+						<span className="font-semibold text-green-800">John Smith</span>
+						<span className="text-xs text-green-700">Online now</span>
 					</div>
 				</div>
 			</section>
 
-			{/* Featured Coaches */}
-			<section className="max-w-6xl mx-auto py-16 px-4">
-				<h2 className="text-3xl md:text-4xl font-bold text-center mb-12 text-blue-900">
-					Featured Life Coaches
-				</h2>
-				<div className="grid md:grid-cols-3 gap-10">
-					{featuredCoaches.map((coach, idx) => (
-						<div
-							key={coach.slug}
-							className="bg-white rounded-xl shadow-lg p-8 flex flex-col items-center border-t-4 border-blue-400"
-						>
-							<img
-								src={
-									coach.profileImg ||
-									`https://randomuser.me/api/portraits/${
-										idx % 2 === 0 ? 'women' : 'men'
-									}/${20 + idx}.jpg`
-								}
-								alt={coach.name}
-								className="rounded-full w-28 h-28 object-cover mb-4 border-4 border-blue-100 shadow bg-gray-100"
-							/>
-							<h3 className="text-2xl font-bold text-blue-800 mb-1">
-								{coach.name}
-							</h3>
-							<div className="flex flex-wrap gap-2 justify-center mb-2">
-								{coach.specialties.map((tag) => (
-									<span
-										key={tag}
-										className="bg-blue-100 text-blue-800 text-xs px-2 py-1 rounded-full"
-									>
-										{tag}
-									</span>
-								))}
-							</div>
-							<p className="text-gray-700 text-center text-base mb-3">
-								{coach.bio.slice(0, 90)}...
-							</p>
-							<div className="flex gap-2 mt-auto">
-								<Link
-									href={`/coaches/${coach.slug}`}
-									className="px-4 py-2 rounded bg-blue-600 text-white font-semibold hover:bg-blue-700 transition text-sm"
-								>
-									View Profile
-								</Link>
-								<a
-									href={coach.bookingLink || `https://calendly.com/${coach.slug}`}
-									target="_blank"
-									rel="noopener noreferrer"
-									className="px-4 py-2 rounded bg-green-500 text-white font-semibold hover:bg-green-600 transition text-sm"
-								>
-									Book Now
-								</a>
-							</div>
-							{coach.reviews && coach.reviews.length > 0 && (
-								<div className="mt-3 text-yellow-500 text-sm">
-									{'⭐'.repeat(coach.reviews[0].rating)}
-									<span className="text-gray-500 ml-2">
-										"{coach.reviews[0].text.slice(0, 40)}..."
-									</span>
-								</div>
-							)}
-						</div>
-					))}
-				</div>
-				<div className="text-center mt-10">
-					<Link
-						href="/coaches"
-						className="inline-block bg-blue-700 hover:bg-blue-800 text-white font-bold px-10 py-4 rounded-lg transition shadow text-lg"
-					>
-						Browse All Coaches
-					</Link>
-				</div>
-			</section>
-
-			{/* CTA Section */}
-			<section className="bg-blue-700 py-16 px-4 text-center mt-8">
-				<h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
-					Get quotes from Life Coaches near you
-				</h2>
-				<p className="text-blue-100 text-lg mb-8">
-					Start your journey to a better you. It only takes a minute!
-				</p>
-				<Link
-					href="/coaches"
-					className="bg-white text-blue-700 font-bold px-10 py-4 rounded-lg text-lg shadow hover:bg-blue-100 transition"
-				>
-					Get Started
-				</Link>
-			</section>
-
-			{/* Popular Cities Section */}
-			<section className="max-w-6xl mx-auto py-16 px-4">
-				<h2 className="text-3xl md:text-4xl font-bold text-center mb-10 text-blue-900">
-					Popular Cities
-				</h2>
-				<div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-6">
-					{popularCities.map((city) => (
-						<div
-							key={city.city + city.country_code}
-							className="bg-white border border-blue-100 rounded-lg px-6 py-6 text-blue-700 font-semibold text-lg shadow flex flex-col items-center"
-						>
-							<span>{city.city}</span>
-							<span className="text-xs text-gray-500 mt-1">
-								{city.country_code}
-							</span>
-						</div>
-					))}
-				</div>
-			</section>
-
-			{/* FAQ Section */}
-			<section className="bg-white py-16 px-4 border-t">
-				<div className="max-w-4xl mx-auto text-center">
-					<h2 className="text-3xl md:text-4xl font-bold text-blue-900 mb-10">
-						Frequently Asked Questions
-					</h2>
-					<div className="grid md:grid-cols-2 gap-8 text-left">
-						{faqs.map((faq, i) => (
-							<div key={i} className="mb-6">
-								<div className="font-semibold text-blue-800 mb-2">
-									{faq.q}
-								</div>
-								<div className="text-gray-700 text-base">{faq.a}</div>
-							</div>
-						))}
+			{/* Testimonials Section */}
+			<section className="py-12 px-4 max-w-3xl mx-auto">
+				<h2 className="text-2xl font-semibold text-center mb-6">What Our Users Say</h2>
+				<div className="flex flex-col gap-6">
+					<div className="bg-white rounded-xl shadow p-6">
+						<div className="text-gray-800 mb-2">"Jane's coaching transformed my career!"</div>
+						<div className="text-sm text-gray-500">– Sarah, NY</div>
+					</div>
+					<div className="bg-white rounded-xl shadow p-6">
+						<div className="text-gray-800 mb-2">"John helped me regain my confidence and find direction."</div>
+						<div className="text-sm text-gray-500">– Alex, CA</div>
+					</div>
+					<div className="bg-white rounded-xl shadow p-6">
+						<div className="text-gray-800 mb-2">"Emma is so supportive and insightful!"</div>
+						<div className="text-sm text-gray-500">– Priya, TX</div>
 					</div>
 				</div>
 			</section>
 
-			{/* Trust/Testimonials Section */}
-			<section className="bg-white py-16 px-4 border-t">
-				<div className="max-w-4xl mx-auto text-center">
-					<h2 className="text-3xl md:text-4xl font-bold text-blue-900 mb-10">
-						Why Choose Us?
-					</h2>
-					<div className="grid md:grid-cols-3 gap-10">
-						<div>
-							<div className="text-blue-700 text-5xl mb-3">★</div>
-							<h3 className="font-semibold mb-2 text-lg">Vetted Coaches</h3>
-							<p className="text-gray-600 text-base">
-								All coaches are carefully screened and reviewed for quality and
-								professionalism.
-							</p>
-						</div>
-						<div>
-							<div className="text-blue-700 text-5xl mb-3">🔒</div>
-							<h3 className="font-semibold mb-2 text-lg">Safe & Secure</h3>
-							<p className="text-gray-600 text-base">
-								Your information is protected and your journey is confidential.
-							</p>
-						</div>
-						<div>
-							<div className="text-blue-700 text-5xl mb-3">💬</div>
-							<h3 className="font-semibold mb-2 text-lg">Real Results</h3>
-							<p className="text-gray-600 text-base">
-								Thousands have found clarity, confidence, and success with our
-								coaches.
-							</p>
-						</div>
-					</div>
-				</div>
-			</section>
+			{/* Footer */}
+			<footer className="py-8 px-4 text-center text-gray-500 text-sm bg-gray-50 mt-12">
+				&copy; {new Date().getFullYear()} LifeCoachConnector. All rights reserved.
+			</footer>
 
-			{/* Reviews Section */}
-			<section className="bg-gray-50 py-20 px-4">
-				<div className="max-w-3xl mx-auto text-center">
-					<div className="flex justify-center items-end mb-10 gap-4 flex-wrap relative min-h-[120px]">
-						{homepageReviews.map((review, i) => (
-							<img
-								key={review.avatar}
-								src={review.avatar}
-								alt={review.name}
-								className={`rounded-full object-cover shadow-md border-2 border-white transition-all duration-300 ${
-									i === 5 ? 'w-28 h-28 z-10' : 'w-16 h-16'
-								} ${i % 2 === 0 ? 'mb-6' : 'mb-0'}`}
-								style={{
-									left: 0,
-									top: 0,
-									position: 'relative',
-									marginLeft: i === 0 ? 0 : -16,
-									marginRight:
-										i === homepageReviews.length - 1 ? 0 : -16,
-								}}
-							/>
-						))}
-					</div>
-					<div className="relative">
-						{/* Simple carousel dots and review text */}
-						<div className="text-2xl md:text-3xl font-semibold text-blue-900 mb-6 min-h-[80px]">
-							“{homepageReviews[0].text}”
-						</div>
-						<div className="text-blue-700 font-bold mb-4">
-							{homepageReviews[0].name}
-						</div>
-						<div className="flex justify-center gap-2 mt-2">
-							{homepageReviews.map((_, i) => (
-								<span
-									key={i}
-									className={`inline-block w-3 h-3 rounded-full ${
-										i === 0 ? 'bg-blue-600' : 'bg-blue-200'
-									}`}
-								></span>
-							))}
-						</div>
-					</div>
-				</div>
-			</section>
-		</main>
+			{/* Floating Chat Widget */}
+			<ChatWidget />
+		</div>
 	);
 }
+
+export default HomePage;
