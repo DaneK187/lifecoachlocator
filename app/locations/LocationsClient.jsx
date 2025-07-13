@@ -1,13 +1,11 @@
-import { Suspense } from "react";
+"use client";
 import countries from '../data/countries.json';
 import cities from '../data/cities.json';
 import Link from 'next/link';
+import { useState, useEffect } from 'react';
+import { usePathname, useRouter, useSearchParams } from 'next/navigation';
 
-function LocationsClientInner() {
-  "use client";
-  const { useState, useEffect } = require('react');
-  const { usePathname, useRouter, useSearchParams } = require('next/navigation');
-
+export default function LocationsClient() {
   const [selectedCountry, setSelectedCountry] = useState(null);
   const pathname = usePathname();
   const searchParams = useSearchParams();
@@ -91,13 +89,5 @@ function LocationsClientInner() {
     <div className="min-h-screen bg-gray-50 py-8 px-4">
       {content}
     </div>
-  );
-}
-
-export default function LocationsClient() {
-  return (
-    <Suspense fallback={<div>Loading...</div>}>
-      <LocationsClientInner />
-    </Suspense>
   );
 }
