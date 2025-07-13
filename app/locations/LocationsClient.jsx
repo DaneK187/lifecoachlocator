@@ -1,23 +1,22 @@
-"use client";
-import { useState, useEffect } from 'react';
-import { usePathname, useRouter, useSearchParams } from 'next/navigation';
+import { Suspense } from "react";
 import countries from '../data/countries.json';
 import cities from '../data/cities.json';
 import Link from 'next/link';
 
-export default function LocationsClient() {
+function LocationsClientInner() {
+  "use client";
+  const { useState, useEffect } = require('react');
+  const { usePathname, useRouter, useSearchParams } = require('next/navigation');
+
   const [selectedCountry, setSelectedCountry] = useState(null);
   const pathname = usePathname();
   const searchParams = useSearchParams();
   const router = useRouter();
 
   useEffect(() => {
-    // Reset selectedCountry if user navigates to /locations or if ?reset=1 is present
     if (pathname === '/locations' || searchParams.get('reset')) {
       setSelectedCountry(null);
     }
-
-    // Listen for routeChangeStart to /locations (even if already there)
     const handleRouteChange = (url) => {
       if (url === '/locations') {
         setSelectedCountry(null);
@@ -39,7 +38,6 @@ export default function LocationsClient() {
 
   let content;
   if (!selectedCountry) {
-    // Show country list
     content = (
       <div>
         <h1 className="text-3xl font-extrabold text-center text-blue-800 mb-8 mt-6">Browse by Country</h1>
@@ -57,7 +55,6 @@ export default function LocationsClient() {
       </div>
     );
   } else {
-    // Show cities for selected country
     const filteredCities = cities.filter(
       (city) => city.country_code === selectedCountry.code && city.population >= 40000
     );
@@ -94,5 +91,13 @@ export default function LocationsClient() {
     <div className="min-h-screen bg-gray-50 py-8 px-4">
       {content}
     </div>
+  );
+}
+
+export default function LocationsClient() {
+  return (
+    <Suspense fallback={<div>Loading...</div>}>
+      <LocationsClientInner />
+    </Suspense>
   );
 }
