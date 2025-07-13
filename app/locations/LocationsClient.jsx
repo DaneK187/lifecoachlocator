@@ -1,9 +1,9 @@
 "use client";
-import countries from '../data/countries.json';
-import cities from '../data/cities.json';
-import Link from 'next/link';
-import { useState, useEffect } from 'react';
-import { usePathname, useRouter, useSearchParams } from 'next/navigation';
+import countries from "../data/countries.json";
+import cities from "../data/cities.json";
+import Link from "next/link";
+import { useState, useEffect } from "react";
+import { usePathname, useRouter, useSearchParams } from "next/navigation";
 
 export default function LocationsClient() {
   const [selectedCountry, setSelectedCountry] = useState(null);
@@ -12,17 +12,17 @@ export default function LocationsClient() {
   const router = useRouter();
 
   useEffect(() => {
-    if (pathname === '/locations' || searchParams.get('reset')) {
+    if (pathname === "/locations" || searchParams.get("reset")) {
       setSelectedCountry(null);
     }
     const handleRouteChange = (url) => {
-      if (url === '/locations') {
+      if (url === "/locations") {
         setSelectedCountry(null);
       }
     };
-    router.events?.on('routeChangeStart', handleRouteChange);
+    router.events?.on("routeChangeStart", handleRouteChange);
     return () => {
-      router.events?.off('routeChangeStart', handleRouteChange);
+      router.events?.off("routeChangeStart", handleRouteChange);
     };
   }, [pathname, searchParams, router]);
 
@@ -38,11 +38,13 @@ export default function LocationsClient() {
   if (!selectedCountry) {
     content = (
       <div>
-        <h1 className="text-3xl font-extrabold text-center text-blue-800 mb-8 mt-6">Browse by Country</h1>
+        <h1 className="text-3xl font-extrabold text-center text-blue-800 mb-8 mt-6">
+          Browse by Country
+        </h1>
         <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4 max-w-5xl mx-auto">
           {countries.map((country, idx) => (
             <Link
-              key={country.code + '-' + idx}
+              key={country.code + "-" + idx}
               href={`/locations/${country.code.toLowerCase()}`}
               className="bg-white border border-blue-200 rounded-lg px-4 py-6 text-lg font-semibold text-blue-700 shadow hover:bg-blue-50 transition text-center block"
             >
@@ -54,7 +56,8 @@ export default function LocationsClient() {
     );
   } else {
     const filteredCities = cities.filter(
-      (city) => city.country_code === selectedCountry.code && city.population >= 40000
+      (city) =>
+        city.country_code === selectedCountry.code && city.population >= 40000
     );
     content = (
       <div>
@@ -71,23 +74,24 @@ export default function LocationsClient() {
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
             {filteredCities.map((city, idx) => (
               <div
-                key={city.city + '-' + idx}
+                key={city.city + "-" + idx}
                 className="bg-white border border-blue-100 rounded-lg px-4 py-4 text-blue-700 font-medium shadow"
               >
-                {city.city} <span className="text-xs text-gray-500">({city.population.toLocaleString()})</span>
+                {city.city}{" "}
+                <span className="text-xs text-gray-500">
+                  ({city.population.toLocaleString()})
+                </span>
               </div>
             ))}
           </div>
         ) : (
-          <div className="text-gray-500">No cities with 40,000+ population found for this country.</div>
+          <div className="text-gray-500">
+            No cities with 40,000+ population found for this country.
+          </div>
         )}
       </div>
     );
   }
 
-  return (
-    <div className="min-h-screen bg-gray-50 py-8 px-4">
-      {content}
-    </div>
-  );
+  return <div className="min-h-screen bg-gray-50 py-8 px-4">{content}</div>;
 }
